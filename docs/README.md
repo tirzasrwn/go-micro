@@ -17,4 +17,17 @@ Running docker compose
 cd ./project
 sudo docker compose up -d
 sudo docker compose up -d --build --force-recreate --no-deps # forced to rebuild image
+# To run without sudo, try to add current user into docker group.
+# Reference: https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo
+sudo usermod -aG docker $USER # Restart
+```
+
+## Makefile
+To speed up the work.
+```sh
+cd ./project
+make down # To make docker image broker-service down.
+make up_build # To build broker-service and run docker compose.
+make start # To build and run front-end in local.
+make down # To stop front-end in local.
 ```
