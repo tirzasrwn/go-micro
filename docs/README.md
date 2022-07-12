@@ -7,8 +7,9 @@ Using Visual Studio Code, File -> Open Workspace from File ... -> workspace.code
 
 ## Port List
 ```
-Front-End:          8000
-Broker-Service:     8080
+Front-End:              8000
+Broker-Service:         8080
+Authentication-Service: 8000
 ```
 
 ## Docker
