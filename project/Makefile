@@ -41,7 +41,7 @@ build_front:
 	@echo "Done!"
 
 ## start: starts the front end
-start: build_front
+start: stop build_front
 	@echo "Starting front end"
 	cd ../front-end && ./${FRONT_END_BINARY} &
 
