@@ -9,8 +9,8 @@ Using Visual Studio Code, File -> Open Workspace from File ... -> workspace.code
 ```
 App-Name                    Docker-Container-Port   Local-Port
 Front-End                   -                       8000
-Broker-Service              8080                    8080
-Authentication-Service      8080                    8081
+Broker-Service              80                      8080
+Authentication-Service      80                      8081
 Postgres                    5432                    5431
 ```
 
