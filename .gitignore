@@ -1,4 +1,10 @@
 broker-service/brokerApp
 front-end/frontApp
 authentication-service/authApp
+logger-service/loggerServiceApp
+
 .DS_Store
+
+project/db-data/mongo/*
+project/db-data/postgres/*
+
