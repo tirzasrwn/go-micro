@@ -24,6 +24,10 @@ sudo docker compose up -d --build --force-recreate --no-deps # forced to rebuild
 # Reference: https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo
 sudo usermod -aG docker $USER # Restart
 ```
+Cleaning image to save some space
+```sh
+docker system prune
+```
 
 ## Makefile
 To speed up the work.
