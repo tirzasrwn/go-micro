@@ -12,6 +12,8 @@ Front-End                   -                       8000
 Broker-Service              80                      8080
 Authentication-Service      80                      8081
 Postgres                    5432                    5431
+Mailhog                     1025                    1025
+Mailhog-Web-Interface       8025                    8025
 ```
 
 ## Docker
