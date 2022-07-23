@@ -141,7 +141,7 @@ func (app *Config) sendMail(w http.ResponseWriter, msg MailPayload) {
 	// Create some json we'll send to microservice.
 	jsonData, _ := json.MarshalIndent(msg, "", "\t")
 	// Call the mail-service.
-	mailServiceURL := "http://mail-service/send"
+	mailServiceURL := "http://mailer-service/send"
 	request, err := http.NewRequest("POST", mailServiceURL, bytes.NewBuffer(jsonData))
 	if err != nil {
 		app.errorJSON(w, err)
