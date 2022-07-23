@@ -10,7 +10,7 @@ func (app *Config) SendMail(w http.ResponseWriter, r *http.Request) {
 		Message string `json:"message"`
 	}
 	var requestPayload mailMessage
-	err := app.readJSON(w, r, requestPayload)
+	err := app.readJSON(w, r, &requestPayload)
 	if err != nil {
 		app.errorJSON(w, err)
 		return
