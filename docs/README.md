@@ -14,6 +14,8 @@ Authentication-Service      80                      8081
 Postgres                    5432                    5431
 Mailhog                     1025                    1025
 Mailhog-Web-Interface       8025                    8025
+Mail-Service                80                      -
+RabbitMQ                    5672                    5672
 ```
 
 ## Docker
