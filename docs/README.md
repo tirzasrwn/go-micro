@@ -42,3 +42,10 @@ make up_build # To build broker-service and run docker compose.
 make start # To build and run front-end in local.
 make down # To stop front-end in local.
 ```
+
+# Go Tool
+Install
+```sh
+go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.27
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
+```
