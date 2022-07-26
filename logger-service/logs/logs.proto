@@ -9,7 +9,7 @@ message Log {
     string data = 2;
 }
 
-message Logrequest {
+message LogRequest {
     Log LogEntry = 1;
 }
 
@@ -18,5 +18,5 @@ message LogResponse {
 }
 
 service LogService {
-    rpc WriteLog(Logrequest) returns (LogResponse);
+    rpc WriteLog(LogRequest) returns (LogResponse);
 }

@@ -22,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type LogServiceClient interface {
-	WriteLog(ctx context.Context, in *Logrequest, opts ...grpc.CallOption) (*LogResponse, error)
+	WriteLog(ctx context.Context, in *LogRequest, opts ...grpc.CallOption) (*LogResponse, error)
 }
 
 type logServiceClient struct {
@@ -33,7 +33,7 @@ func NewLogServiceClient(cc grpc.ClientConnInterface) LogServiceClient {
 	return &logServiceClient{cc}
 }
 
-func (c *logServiceClient) WriteLog(ctx context.Context, in *Logrequest, opts ...grpc.CallOption) (*LogResponse, error) {
+func (c *logServiceClient) WriteLog(ctx context.Context, in *LogRequest, opts ...grpc.CallOption) (*LogResponse, error) {
 	out := new(LogResponse)
 	err := c.cc.Invoke(ctx, "/logs.LogService/WriteLog", in, out, opts...)
 	if err != nil {
@@ -46,7 +46,7 @@ func (c *logServiceClient) WriteLog(ctx context.Context, in *Logrequest, opts ..
 // All implementations must embed UnimplementedLogServiceServer
 // for forward compatibility
 type LogServiceServer interface {
-	WriteLog(context.Context, *Logrequest) (*LogResponse, error)
+	WriteLog(context.Context, *LogRequest) (*LogResponse, error)
 	mustEmbedUnimplementedLogServiceServer()
 }
 
@@ -54,7 +54,7 @@ type LogServiceServer interface {
 type UnimplementedLogServiceServer struct {
 }
 
-func (UnimplementedLogServiceServer) WriteLog(context.Context, *Logrequest) (*LogResponse, error) {
+func (UnimplementedLogServiceServer) WriteLog(context.Context, *LogRequest) (*LogResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method WriteLog not implemented")
 }
 func (UnimplementedLogServiceServer) mustEmbedUnimplementedLogServiceServer() {}
@@ -71,7 +71,7 @@ func RegisterLogServiceServer(s grpc.ServiceRegistrar, srv LogServiceServer) {
 }
 
 func _LogService_WriteLog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Logrequest)
+	in := new(LogRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -83,7 +83,7 @@ func _LogService_WriteLog_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: "/logs.LogService/WriteLog",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LogServiceServer).WriteLog(ctx, req.(*Logrequest))
+		return srv.(LogServiceServer).WriteLog(ctx, req.(*LogRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

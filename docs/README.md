@@ -43,7 +43,7 @@ make start # To build and run front-end in local.
 make down # To stop front-end in local.
 ```
 
-# Go Tool
+# Go Tool for gRPC
 Install
 ```sh
 go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.27
