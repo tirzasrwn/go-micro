@@ -49,3 +49,15 @@ Install
 go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.27
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
 ```
+Step to using gRPC:
+* Define your .proto file
+* Generate gRPC code from command line
+```sh
+# Go to directory that having .proto file.
+sudo apt install -y protobuf-compiler # Install protoc
+# Make sure you can run protoc-gen-go and protoc-gen-go-grpc, you can just export the path.
+protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative logs.proto
+# It will auto generate two files that you don't want to edit.
+```
+Reference:
+* https://grpc.io/docs/protoc-installation/

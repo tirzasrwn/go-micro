@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package logs;
 
-options go_package = "/logs";
+option go_package = "/logs";
 
-message Log{
+message Log {
     string name = 1;
     string data = 2;
 }
@@ -17,6 +17,6 @@ message LogResponse {
     string result = 1;
 }
 
-services LogService {
+service LogService {
     rpc WriteLog(Logrequest) returns (LogResponse);
 }
