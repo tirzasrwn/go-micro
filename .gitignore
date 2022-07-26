@@ -3,6 +3,7 @@ front-end/frontApp
 authentication-service/authApp
 logger-service/loggerServiceApp
 mail-service/mailerApp
+listener-service/listenerApp
 
 .DS_Store
 
