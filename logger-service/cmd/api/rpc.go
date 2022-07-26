@@ -7,13 +7,17 @@ import (
 	"time"
 )
 
+// RPCServer is the type for our RPC Server. Method that take this as a reciever are avaliable
+// over RPC, as long as they are exported.
 type RPCServer struct{}
 
+// RPCPayload is the type for data we recieve from RPC.
 type RPCPayload struct {
 	Name string
 	Data string
 }
 
+// LogInfo writes our payload into mongo.
 func (r *RPCServer) LogInfo(payload RPCPayload, resp *string) error {
 	collection := client.Database("logs").Collection("logs")
 	_, err := collection.InsertOne(context.TODO(), data.LogEntry{
